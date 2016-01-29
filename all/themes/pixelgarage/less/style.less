@@ -1,0 +1,16 @@
+// Bootstrap library.
+@import '../bootstrap/less/bootstrap';
+// Bootstrap Framework variables (overrides).
+@import "variable-overrides.less";
+// Base-theme overrides.
+@import 'overrides';
+
+// Theme specific.
+@import 'fonts'; // include theme fonts
+@import 'mixins/pxlMixins';
+@import 'pxlComponents/pxlComponents';
+
+// Customer specific.
+@import 'header';
+@import 'content';
+@import 'footer';

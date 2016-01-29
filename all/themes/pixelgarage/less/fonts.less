@@ -1,0 +1,95 @@
+/* --------------------------------------------------
+ * Pixelgarage fonts
+ * --------------------------------------------------*/
+//
+
+//
+// Awesome icon font
+@import '../fonts/font-awesome/less/font-awesome';
+@fa-font-path: '@{pxl-font-path}/font-awesome/fonts'; // override fa font path (lazy loading)
+
+//
+// responsive font sizes
+@resp-font-size:          2.5vw;
+@resp-font-size-min:      11px;
+@resp-font-size-max:      21px;
+@resp-font-size-large:    3.6vw;
+@resp-font-size-large-min:20px;
+@resp-font-size-large-max:30px;
+
+
+//
+// responsive font sizes
+@pxl-resp-font-size:      @resp-font-size;
+@pxl-min-font-size:       @resp-font-size-min;
+@pxl-max-font-size:       @resp-font-size-max;
+@pxl-resp-font-size-large: @resp-font-size-large;
+@pxl-min-font-size-large: @resp-font-size-large-min;
+@pxl-max-font-size-large: @resp-font-size-large-max;
+
+
+//
+// Define customer specific fonts
+@pxl-font-path: '../fonts';
+@pxl-bs-path: '../bootstrap';
+
+// icon font
+@pxl-icon-font: 'fontawesome';
+
+// title font
+@pxl-title-font: 'UniversLTStd', sans-serif;
+
+// text fonts
+@pxl-text-font: 'UniversLTStdCn', sans-serif;
+@pxl-text-font-light: 'UniversLTStdCn', sans-serif;
+@pxl-text-font-medium: 'UniversLTStdCn', sans-serif;
+@pxl-text-font-bold: 'UniversRoman', sans-serif;
+@pxl-text-font-italics: 'UniversLTStdCn', sans-serif;
+@pxl-text-font-light-italics: 'UniversLight', sans-serif;
+@pxl-text-font-bold-italics: 'UniversRoman', sans-serif;
+
+// form font
+@pxl-form-font: @pxl-text-font;
+
+// overrides
+@font-family-base: @pxl-title-font;
+
+//
+// font faces
+//
+@font-face {
+  font-family: 'UniversLight';
+  src: url('@{pxl-font-path}/UniversLight/UniversLight.eot');
+  src: url('@{pxl-font-path}/UniversLight/UniversLight.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/UniversLight/UniversLight.woff2') format('woff2'),
+  url('@{pxl-font-path}/UniversLight/UniversLight.woff') format('woff'),
+  url('@{pxl-font-path}/UniversLight/UniversLight.ttf') format('truetype'),
+  url('@{pxl-font-path}/UniversLight/UniversLight.svg#UniversLight') format('svg');
+}
+@font-face {
+  font-family: 'UniversRoman';
+  src: url('@{pxl-font-path}/UniversRoman/UniversRoman.eot');
+  src: url('@{pxl-font-path}/UniversRoman/UniversRoman.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/UniversRoman/UniversRoman.woff2') format('woff2'),
+  url('@{pxl-font-path}/UniversRoman/UniversRoman.woff') format('woff'),
+  url('@{pxl-font-path}/UniversRoman/UniversRoman.ttf') format('truetype'),
+  url('@{pxl-font-path}/UniversRoman/UniversRoman.svg#UniversRoman') format('svg');
+}
+@font-face {
+  font-family: 'UniversLTStd';
+  src: url('@{pxl-font-path}/UniversLTStd/UniversLTStd.eot');
+  src: url('@{pxl-font-path}/UniversLTStd/UniversLTStd.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/UniversLTStd/UniversLTStd.woff2') format('woff2'),
+  url('@{pxl-font-path}/UniversLTStd/UniversLTStd.woff') format('woff'),
+  url('@{pxl-font-path}/UniversLTStd/UniversLTStd.ttf') format('truetype'),
+  url('@{pxl-font-path}/UniversLTStd/UniversLTStd.svg#UniversLTStd') format('svg');
+}
+@font-face {
+  font-family: 'UniversLTStdCn';
+  src: url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.eot');
+  src: url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.woff2') format('woff2'),
+  url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.woff') format('woff'),
+  url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.ttf') format('truetype'),
+  url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.svg#UniversLTStdCn') format('svg');
+}

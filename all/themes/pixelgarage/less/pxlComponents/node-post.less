@@ -1,0 +1,299 @@
+/*
+ *  Node post component
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+@pxl-text-color-back: #fff;
+@pxl-padding-card-back: 15px;
+@pxl-name-field-bg-color-left: @pxl-color-orange;
+@pxl-name-field-bg-color-right: @pxl-color-orange;
+@pxl-name-field-color: #fff;
+
+
+// Mixins
+// -------------------------
+.category-icon() {
+  .i18n-de .image-me & { background: #fff url('../images/d_ich.svg') no-repeat center bottom/contain; }
+  .i18n-de .image-you & { background: #fff url('../images/d_du.svg') no-repeat center bottom/contain; }
+  .i18n-de .image-we & { background: #fff url('../images/d_wir.svg') no-repeat center bottom/contain; }
+  .i18n-de .image-you-all & { background: #fff url('../images/d_ihr.svg') no-repeat center bottom/contain; }
+
+  .i18n-en .image-me & { background: #fff url('../images/e_ich.svg') no-repeat center bottom/contain; }
+  .i18n-en .image-you & { background: #fff url('../images/e_du.svg') no-repeat center bottom/contain; }
+  .i18n-en .image-we & { background: #fff url('../images/e_wir.svg') no-repeat center bottom/contain; }
+  .i18n-en .image-you-all & { background: #fff url('../images/e_ihr.svg') no-repeat center bottom/contain; }
+
+  .i18n-fr .image-me & { background: #fff url('../images/f_moi.svg') no-repeat center bottom/contain; }
+  .i18n-fr .image-you & { background: #fff url('../images/f_toi.svg') no-repeat center bottom/contain; }
+  .i18n-fr .image-we & { background: #fff url('../images/f_wir.svg') no-repeat center bottom/contain; }
+  .i18n-fr .image-you-all & { background: #fff url('../images/f_ihr.svg') no-repeat center bottom/contain; }
+}
+
+
+
+// General settings
+// -------------------------
+.node-post {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  //overflow: hidden;
+
+  // Front of card
+  &.view-mode-front {
+    .category-icon;
+
+    div.row {
+      margin: 0;
+      height: 100%;
+
+      div.col-sm-12 {
+        padding: 0;
+        height: 100%;
+
+        .field-name-field-name {
+          position: absolute;
+          top: 56.9%;
+          left: -2%;
+          padding: 0.2em 1em 0;
+          width: auto;
+          font-family: @pxl-text-font-light;
+          font-size: 16px;
+          text-transform: uppercase;
+          text-align: center;
+          letter-spacing: 1px;
+          line-height: 1.2em;
+          color: @pxl-name-field-color;
+          background-color: @pxl-name-field-bg-color-left;
+        }
+
+        .field-name-field-image {
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        .field-name-field-quote {
+          position: absolute;
+          overflow: hidden;
+          top: 73%;
+          right: 0;
+          width: 54%;
+          height: auto;
+          line-height: 16px;
+          text-align: center;
+          #pxl-mixins.hyphenate(auto);
+
+          .field-item {
+            font-family: @pxl-text-font-light;
+            font-size: 14px;
+
+            @media @narrow {
+              font-size: 14px;
+            }
+            @media @tablet {
+              font-size: 15px;
+            }
+            @media @normal {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Back of card
+  &.view-mode-back {
+    div.row {
+      margin: 0;
+      height: 100%;
+
+      div.col-sm-12 {
+        position: relative;
+        height: 100%;
+        padding: @pxl-padding-card-back @pxl-padding-card-back;
+
+        .field-name-quote {
+          padding: 0 0 @pxl-padding-card-back;
+          width: 30%;
+          border-bottom: 3px solid @pxl-text-color-back;
+
+          p {
+            font-family: @pxl-text-font;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: @pxl-text-color-back;
+            line-height: 1.2;
+            white-space: nowrap;
+          }
+        }
+
+        .field-name-field-quote {
+          padding: @pxl-padding-card-back 0;
+          width: 30%;
+          border-bottom: 3px solid @pxl-text-color-back;
+
+          .field-item {
+            width: 333%;
+            font-family: @pxl-text-font-light;
+            font-size: 6vw;
+            text-transform: uppercase;
+            color: @pxl-text-color-back;
+            line-height: 1.4;
+            #pxl-mixins.hyphenate(auto);
+
+            @media @narrow {
+              font-size: 3.6vw;
+            }
+            @media @tablet {
+              font-size: 1.6vw;
+            }
+            @media @normal {
+              font-size: 1.3vw;
+            }
+            @media @wide {
+              font-size: @font-size-large;
+            }
+
+            &:before {
+              content: '\00ab';
+              padding-right: 0.2em;
+            }
+            &:after {
+              content: '\00bb';
+              padding-left: 0.2em;
+            }
+          }
+        }
+
+        .group-icon-section {
+          padding: @pxl-padding-card-back 0;
+        }
+
+        .group-share-section {
+          position: absolute;
+          bottom: 5px;
+          left: 0;
+          padding: @pxl-padding-card-back @pxl-padding-card-back 0;
+          width: 100%;
+
+          .sharethis-buttons {
+            padding-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+//
+// full mode (social links)
+//
+.node-post.view-mode-full {
+  position: relative;
+  //overflow: hidden;
+  width: 100%;
+
+  @media @narrow {
+    width: 50%;
+  }
+  @media @tablet {
+    width: 75%;
+  }
+
+  div.row {
+    margin: 0;
+    height: 100%;
+
+    div.col-sm-6 {
+      padding: 30px 0 0;
+      margin: 0;
+
+
+      &.left-region {
+        padding-bottom: 144.82%; // 420/290
+        height: 0;
+        .category-icon;
+
+        @media @tablet {
+          padding-bottom: 72.41%; // only half of width = 420/290/2
+        }
+
+        .field-name-field-image {
+          img {
+            width: 100%;
+          }
+        }
+
+        .field-name-field-name {
+          position: absolute;
+          top: 56.9%;
+          left: -2%;
+          padding: 0.2em 1em 0;
+          width: auto;
+          font-family: @pxl-text-font-light;
+          font-size: 16px;
+          text-transform: uppercase;
+          text-align: center;
+          letter-spacing: 1px;
+          line-height: 1.2em;
+          color: @pxl-name-field-color;
+          background-color: @pxl-name-field-bg-color-left;
+        }
+
+        .field-name-field-quote {
+          position: absolute;
+          overflow: hidden;
+          top: 74%;
+          right: 0;
+          width: 54%;
+          height: auto;
+          #pxl-mixins.hyphenate(auto);
+          text-align: center;
+
+          .field-item {
+            font-family: @pxl-text-font;
+            font-size: 4.5vw;
+
+            @media @narrow {
+              font-size: 2.5vw;
+            }
+            @media @tablet {
+              font-size: 16px;
+            }
+            @media @normal {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+
+      &.right-region {
+        @media @tablet {
+          padding-left: 20px;
+        }
+
+        .field-name-title {
+          h2 {
+            margin: 0;
+            font-family: @pxl-text-font;
+            font-size: 45px;
+            color: @text-color;
+            border-bottom: 2px solid @text-color;
+          }
+        }
+
+        .sharethis-buttons {
+          margin-top: 15px;
+          // see block-social for styling
+        }
+      }
+    }
+  }
+}

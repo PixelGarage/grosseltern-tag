@@ -1,0 +1,29 @@
+/*
+ *  General mixins
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+
+
+// Mixins
+// -------------------------
+#pxl-mixins {
+  //
+  // To prevent the mixins without parameter to be output into the css-file, use () in definition
+  //
+  .no-list-style() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  //
+  // Select box appearence
+  .no-appearance() {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+  }
+
+}

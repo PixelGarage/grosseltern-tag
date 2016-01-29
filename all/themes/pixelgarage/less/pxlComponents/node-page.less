@@ -1,0 +1,118 @@
+/*
+ *  Node page component
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+
+
+// Mixins
+// -------------------------
+
+
+
+// General settings
+// -------------------------
+.node-page {
+  padding-top: 30px;
+
+  div.col-sm-12 {
+    width: 100%;
+
+    .field-name-title {
+      h2 {
+        font-family: @pxl-text-font-bold;
+        font-size: @pxl-min-font-size-large;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: @text-color;
+
+        @media @narrow {
+          font-size: @pxl-resp-font-size-large;
+        }
+        @media @tablet {
+          font-size: @pxl-max-font-size-large;
+        }
+      }
+    }
+
+    .field-name-body {
+      #pxl-mixins.wysiwyg-body;
+
+      @media @normal {
+        .content-columns(2);
+      }
+
+      @media @wide {
+        .content-columns(3);
+      }
+
+    }
+  }
+}
+
+body.page-node-222 .node-page,
+body.page-node-225 .node-page,
+body.page-node-226 .node-page {
+  div.col-sm-12 {
+    width: 100%;
+
+    // mailchimp newsletter
+    .field-name-body {
+      #pxl-mixins.wysiwyg-body;
+      .content-columns(1);
+
+      #mc_embed_signup {
+        #mc_embed_signup_scroll {
+          label {
+            display: block;
+          }
+
+          input.email {
+            display: inline-block;
+            vertical-align: top;
+            padding: 0 10px;
+            height: 32px;
+            width: 50%;
+            font-family: @pxl-text-font-light;
+            font-size: 17px;
+            #pxl-mixins.border-radius(@border-radius-base);
+            .border-right-radius(0);
+            border: 1px solid @pxl-color-orange;
+
+            &:focus {
+              #pxl-mixins.box-shadow(0 0 2px @pxl-color-orange inset);
+            }
+          }
+          .clear {
+            display: inline-block;
+            margin: 0 0 0 -4px;
+            padding: 0;
+            vertical-align: top;
+
+            input {
+              margin: 0;
+              padding: 3px 10px 0;
+              height: 32px;
+              font-family: @pxl-text-font-bold;
+              font-size: 17px;
+              line-height: 1;
+              letter-spacing: 1.5px;
+              text-transform: uppercase;
+              color: #fff;
+              outline: none;
+              #pxl-mixins.border-radius(@border-radius-base);
+              .border-left-radius(0);
+              border: 1px solid @pxl-color-orange;
+              background-color: @pxl-color-orange;
+
+              &:hover {
+                color: @pxl-color-orange;
+                background: none;
+              }            }
+          }
+        }
+      }
+    }
+  }
+}

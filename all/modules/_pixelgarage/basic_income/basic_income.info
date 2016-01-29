@@ -1,0 +1,5 @@
+name = BasicIncome project
+description = "Provides all project specific Drupal enhancements (system hooks)."
+core = 7.x
+package = PixelGarage
+

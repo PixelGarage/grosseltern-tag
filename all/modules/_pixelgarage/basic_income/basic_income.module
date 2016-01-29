@@ -1,0 +1,59 @@
+<?php
+/**
+ * Implements the project specific Drupal enhancements (system hooks).
+ */
+
+/* --------------------------------------------------
+ * Webform: pre-defined select option definition
+ * --------------------------------------------------*/
+
+/**
+ * Define a custom select list displaying all available nodes of type praxisdialog.
+ *
+ */
+function basic_income_webform_select_options_info() {
+  $items = array();
+  $items['categories'] = array(
+    'title' => t('Categories'),
+    'options callback' => '_webform_select_options_terms',
+    'options arguments' => array ('category'),
+  );
+  return $items;
+}
+
+/**
+ * Creates a list of all available terms of a vocabulary.
+ *
+ * @param $component
+ *   The Webform component array for the select component being displayed.
+ * @param $flat
+ *   Boolean value indicating whether the returned list needs to be a flat array
+ *   of key => value pairs. Select components support up to one level of
+ *   nesting, but when results are displayed, the list needs to be returned
+ *   without the nesting.
+ * @param $arguments
+ *   The "options arguments" specified in hook_webform_select_options_info().
+ *
+ * @return array|null An array of key => value pairs suitable for a select list's #options
+ *                    FormAPI property.
+ */
+function _webform_select_options_terms ($component, $flat, $arguments) {
+  // load praxisdialog nodes
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'taxonomy_term')
+    ->entityCondition('bundle', $arguments[0]);
+  $result = $query->execute();
+
+  if (isset($result['taxonomy_term'])) {
+    $tids = array_keys($result['taxonomy_term']);
+    $terms = taxonomy_term_load_multiple($tids);
+
+    $list = array();
+    foreach ($terms as $term) {
+      $list[$term->tid] = $term->name;
+    }
+    return $list;
+  }
+  return null;
+}
+

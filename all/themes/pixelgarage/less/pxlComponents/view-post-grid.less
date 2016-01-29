@@ -1,0 +1,140 @@
+/*
+ *  Europa view component
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+@pxl-header-card-height: 30px;
+
+
+// Mixins
+// -------------------------
+.view-gutter(@pxl-view-gutter: 10%) {
+  margin: 0 @pxl-view-gutter/2;
+  padding-bottom: 1.448276*(100% - @pxl-view-gutter);
+  height: 0;
+}
+
+
+// General settings
+// -------------------------
+.view-post-grid {
+  margin: 20px -@grid-gutter-width/2 0;
+
+  .view-content {
+    .views-row {
+      display: inline-block;
+      padding: 0;
+      margin: 20px -2px;
+      width: 100%;
+      height: auto;
+
+      @media @narrow {
+        width: 50%;
+      }
+      @media @tablet {
+        width: 33.3333333%;
+      }
+      @media @normal {
+        width: 25%;
+      }
+
+      .header-card {
+        margin: -@pxl-header-card-height 10% 10px;
+        font-family: @pxl-text-font-bold;
+        font-size: 15px;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        line-height: 1.25;
+
+        @media @narrow {
+          margin: -@pxl-header-card-height 5% 10px;
+        }
+      }
+
+      .card-container {
+        position: relative;
+        .view-gutter(20%);
+        .perspective(800px);
+
+        @media @narrow {
+          .view-gutter;
+        }
+
+        .card {
+          cursor: pointer;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          #pxl-mixins.transform-style(preserve-3d);
+          .transition-transform(0.8s);
+          .transform-origin(right center);
+
+          &.flipped {
+            .preserve3d & {
+              #pxl-mixins.transform(translateX( -100% ) rotateY( -180deg ));
+            }
+
+            .no-preserve3d & {
+              // IE fix: add complete transformation to each element
+              article {
+                .transform-origin(right center);
+
+                &.front {
+                  #pxl-mixins.transform(perspective(800px) translateX( -100% ) rotateY(-180deg));
+                  z-index: 0;
+                }
+                &.back {
+                  #pxl-mixins.transform(perspective(800px) translateX(0%) rotateY(0deg));
+                  z-index: 1;
+                }
+              }
+            }
+          }
+
+          article {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            #pxl-mixins.transform-style(preserve-3d);
+            .backface-visibility(hidden);
+
+            &.front {
+              background-color: #fff;
+            }
+
+            &.back {
+              background-color: @pxl-color-orange;
+              .rotateY(180deg);
+            }
+
+            .no-preserve3d & {
+              // IE fix: add complete transformation to each element
+              .transition-transform(0.8s);
+
+              &.front {
+                .transform-origin(right center);
+                #pxl-mixins.transform(perspective(800px) translateX(0%) rotateY(0deg));
+                z-index: 1;
+              }
+
+              &.back {
+                .transform-origin(left center);
+                #pxl-mixins.transform(perspective(800px) translateX(100%) rotateY(180deg));
+                z-index: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

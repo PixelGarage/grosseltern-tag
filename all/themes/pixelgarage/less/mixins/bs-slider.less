@@ -1,0 +1,46 @@
+/*
+ *  Bootstrap slider mixin
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+
+
+// Mixins
+// -------------------------
+#pxl-mixins {
+  //
+  // Bootstrap slider
+  .bs-slider() {
+    .carousel {
+      .carousel-inner {
+        .item {
+          div {
+            // background image slide
+            height: 300px;
+
+            @media @tablet {
+              height: 400px;
+            }
+            @media @normal {
+              height: 500px;
+            }
+          }
+          &.active {
+
+          }
+        }
+      }
+
+      a.carousel-control {
+        background: none;
+
+        &.left {
+        }
+
+        &.right {
+        }
+      }
+    }
+  }
+}

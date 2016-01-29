@@ -1,0 +1,113 @@
+/*
+ *  Footer section (page bottom)
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+@pxl-follow-site-width: 85px;
+
+// Mixins
+// -------------------------
+
+
+
+// Main settings
+// -------------------------
+footer.footer {
+  margin: 20px auto;
+  padding: 20px 0;
+  border: none;
+
+  .region-footer{
+    position: relative;
+
+    .block {
+      display: inline-block;
+
+      ul.menu {
+        display: block;
+        float: none;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          margin-right: -0.25em;
+          float: none;
+
+          a, span {
+            display: block;
+            padding: 0 8px;
+            font-family: @pxl-text-font-bold;
+            font-size: @font-size-smaller;
+            line-height: 1;
+            text-transform: uppercase;
+            color: @text-color;
+            outline: none;
+            border-right: 1px solid @text-color;
+
+            @media @narrow {
+              padding: 0 10px;
+              font-size: @font-size-small;
+            }
+            @media @tablet {
+              padding: 0 15px;
+              font-size: @font-size-base;
+            }
+
+            &:hover,
+            &.active {
+              color: @pxl-color-orange;
+              background: none;
+            }
+          }
+
+          &.last a, &.last span {
+            border: none;
+          }
+        }
+      }
+
+      &#block-menu-block-1 {
+        // main menu in footer
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @media @tablet {
+          left: 50%;
+          #pxl-mixins.translateX(-50%);
+        }
+
+      }
+
+      &#block-menu-menu-copyright-menu,
+      &#block-follow-site {
+        position: absolute;
+        top: 0;
+        right: @grid-gutter-width/2;
+      }
+      &#block-menu-menu-copyright-menu {
+        display: none;
+        right: @grid-gutter-width/2 + @pxl-follow-site-width;
+
+        @media @narrow {
+          display: inline-block;
+        }
+
+        ul.menu {
+          li {
+            a, span {
+              font-size: @pxl-min-font-size;
+              color: @pxl-color-gold;
+
+              &:hover, &.active {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

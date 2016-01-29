@@ -1,0 +1,264 @@
+diff --git a/README.txt b/README.txt
+index dcfeafa..55b5d78 100644
+--- a/README.txt
++++ b/README.txt
+@@ -80,9 +80,24 @@ colon (:) character. For example:
+ Note, custom checks require that its module be enabled. Also, should you be
+ skipping any check the 'store' option will not allow that check to be run.
+ 
++-- SITE AUDIT USAGE --
++
++Security Review also integrates with https://www.drupal.org/project/site_audit ,
++a static site analysis platform that generates reports with actionable best
++practice recommendations. Security Review can be installed on an entire
++platform, eliminating the need for module installation.
++
++To use, put Security Review either in your codebase or in your Drush command
++locations, then:
++
++    # Clear Drush cache.
++    drush cc drush
++    # Audit security.
++    drush audit_security
++
+ -- SUPPORT --
+ 
+-Please use the issue queue at http://drupal.org/project/security_review for all
++Please use the issue queue at https://drupal.org/project/security_review for all
+ module support. You can read more about securely configuring your site at
+ http://drupal.org/security/secure-configuration and http://drupalscout.com
+ 
+diff --git a/security_review.drush.inc b/security_review.drush.inc
+index 9665f16..3265074 100644
+--- a/security_review.drush.inc
++++ b/security_review.drush.inc
+@@ -1,5 +1,4 @@
+ <?php
+-
+ /**
+  * @file
+  * Drush commands for Security Review module.
+@@ -33,6 +32,7 @@ function security_review_drush_command() {
+       'secrev --lastrun' => 'Output the stored results from the last run of the checklist'
+     ),
+   );
++
+   $items['password-check-setup'] = array(
+     'callback' => 'security_review_drush_hash_setup',
+     'aliases' => array('passset'),
+@@ -290,3 +290,30 @@ function security_review_drush_hash_setup() {
+     drush_die('File not found');
+   }
+ }
++
++/**
++ * Implements hook_drush_command_alter().
++ */
++function security_review_drush_command_alter(&$command) {
++  // Adds security_review checks to existing security report.
++  if ($command['command'] == 'audit_security') {
++    $security_review_checks = array(
++      'FilePerms',
++      'InputFormats',
++      'Field',
++      'ErrorReporting',
++      'PrivateFiles',
++      'UploadExtensions',
++      'AdminPermissions',
++      'ExecutablePhp',
++      'BaseUrlSet',
++      'TemporaryFiles',
++    );
++    foreach ($security_review_checks as $name) {
++      $command['checks'][] = array(
++        'name' => $name,
++        'location' => __DIR__ . '/security_review.site_audit.inc',
++      );
++    }
++  }
++}
+diff --git a/security_review.site_audit.inc b/security_review.site_audit.inc
+new file mode 100644
+index 0000000..3608542
+--- /dev/null
++++ b/security_review.site_audit.inc
+@@ -0,0 +1,179 @@
++<?php
++/**
++ * @file
++ * Contains \SiteAudit\Check\Security security_review checks.
++ */
++
++/**
++ * Class SecurityReviewSiteAuditCheckAbstract
++ */
++abstract class SecurityReviewSiteAuditCheckAbstract extends SiteAuditCheckAbstract {
++  /**
++   * The implementing module.
++   * @var string
++   */
++  protected $module = 'security_review';
++
++  /**
++   * The check in question.
++   * @var string
++   */
++  protected $check;
++
++  /**
++   * Implements \SiteAudit\Check\Abstract\getLabel().
++   */
++  public function getLabel() {
++    $checks = security_review_get_checklist();
++    return $checks[$this->module][$this->check]['title'];
++  }
++
++  /**
++   * Implements \SiteAudit\Check\Abstract\getDescription().
++   */
++  public function getDescription() {
++    $checks = security_review_get_checklist();
++    return dt('Security Check of @title', array(
++      '@title' => $checks[$this->module][$this->check]['title'],
++    ));
++  }
++
++  /**
++   * Implements \SiteAudit\Check\Abstract\getResultFail().
++   */
++  public function getResultFail() {
++    $ret_val = $this->registry[$this->module][$this->check]['failure'];
++    if (isset($this->registry[$this->module][$this->check]['value'])) {
++      if (is_array($this->registry[$this->module][$this->check]['value'])) {
++        $ret_val .= $this->generateUl($this->registry[$this->module][$this->check]['value'], drush_get_option('html'));
++      }
++      elseif ($this->registry[$this->module][$this->check]['value']) {
++        $ret_val .= ' Additional: "' . $this->registry[$this->module][$this->check]['value'] . '"';
++      }
++    }
++    return $ret_val;
++  }
++
++  /**
++   * Generates an unordered list or flattened text version of a nested array.
++   *
++   * @param array $array
++   *   Security Review results.
++   * @param bool $html
++   *   TRUE if the result should be rendered as HTML.
++   * @param int $indentation
++   *   The number of spaces; defaults to 6.
++   *
++   * @return string
++   *   Formatted result.
++   */
++  private function generateUl($array, $html = TRUE, $indentation = 6) {
++    $result = $html ? '<ul>' : '';
++    foreach ($array as $key => $value) {
++      $result .= $html ? '<li>' : PHP_EOL . str_repeat(' ', $indentation);
++      $result .= $key . ': ';
++      if (is_array($value)) {
++        $result .= $this->generateUl($value, $html, $indentation + 2);
++      }
++      elseif (isset($value->name) && $value->name) {
++        $result .= $value->name;
++      }
++      elseif ($value) {
++        $result .= $value;
++      }
++      $result .= $html ? '</li>' : '';
++    }
++    $result .= $html ? '</ul>' : '';
++    return $result;
++  }
++
++  /**
++   * Implements \SiteAudit\Check\Abstract\getResultInfo().
++   */
++  public function getResultInfo() {}
++
++  /**
++   * Implements \SiteAudit\Check\Abstract\getResultPass().
++   */
++  public function getResultPass() {
++    return $this->registry[$this->module][$this->check]['success'];
++  }
++
++  /**
++   * Implements \SiteAudit\Check\Abstract\getResultWarn().
++   */
++  public function getResultWarn() {}
++
++  /**
++   * Implements \SiteAudit\Check\Abstract\getAction().
++   */
++  public function getAction() {}
++
++  /**
++   * Implements \SiteAudit\Check\Abstract\calculateScore().
++   */
++  public function calculateScore() {
++    $checks = security_review_get_checklist();
++    $checklist_results = security_review_run(array(
++      $this->module => array($checks[$this->module][$this->check]),
++    ));
++
++    $this->registry[$this->module][$this->check] = $checklist_results['security_review'][0];
++    if (!$this->registry[$this->module][$this->check]['result']) {
++      return SiteAuditCheckAbstract::AUDIT_CHECK_SCORE_FAIL;
++    }
++    else {
++      return SiteAuditCheckAbstract::AUDIT_CHECK_SCORE_PASS;
++    }
++  }
++}
++
++class SiteAuditCheckSecurityFilePerms extends SecurityReviewSiteAuditCheckAbstract {
++  protected $check = 'file_perms';
++
++  /**
++   * Implements \SiteAudit\Check\Abstract\getResultWarn().
++   */
++  public function getResultFail() {
++    if (drush_get_option('detail')) {
++      return parent::getResultFail();
++    }
++    return $this->registry[$this->module][$this->check]['failure'];
++  }
++}
++
++class SiteAuditCheckSecurityInputFormats extends SecurityReviewSiteAuditCheckAbstract {
++  protected $check = 'input_formats';
++}
++
++class SiteAuditCheckSecurityField extends SecurityReviewSiteAuditCheckAbstract {
++  protected $check = 'field';
++}
++
++class SiteAuditCheckSecurityErrorReporting extends SecurityReviewSiteAuditCheckAbstract {
++  protected $check = 'error_reporting';
++}
++
++class SiteAuditCheckSecurityPrivateFiles extends SecurityReviewSiteAuditCheckAbstract {
++  protected $check = 'private_files';
++}
++
++class SiteAuditCheckSecurityUploadExtensions extends SecurityReviewSiteAuditCheckAbstract {
++  protected $check = 'upload_extensions';
++}
++
++class SiteAuditCheckSecurityAdminPermissions extends SecurityReviewSiteAuditCheckAbstract {
++  protected $check = 'admin_permissions';
++}
++
++class SiteAuditCheckSecurityExecutablePhp extends SecurityReviewSiteAuditCheckAbstract {
++  protected $check = 'executable_php';
++}
++
++class SiteAuditCheckSecurityBaseUrlSet extends SecurityReviewSiteAuditCheckAbstract {
++  protected $check = 'base_url_set';
++}
++
++class SiteAuditCheckSecurityTemporaryFiles extends SecurityReviewSiteAuditCheckAbstract {
++  protected $check = 'temporary_files';
++}

@@ -1,0 +1,152 @@
+/*
+ *  Content section (main content)
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+@header-media:  ~"screen and (min-width: 640px)";
+
+
+// Mixins
+// -------------------------
+
+
+
+// Main settings
+// -------------------------
+.container {
+  //
+  // general link without outline
+  a {
+    outline: none;
+
+    &.active, &:hover, &:focus {
+      outline: none;
+    }
+  }
+}
+
+body.navbar-is-fixed-top {
+  padding-top: 129px !important;
+
+  &.admin-menu {
+    padding-top: 129px !important;
+  }
+
+  @media @narrow {
+    padding-top: 154px !important;
+
+    &.admin-menu {
+      padding-top: 154px !important;
+    }
+  }
+  @media @tablet {
+    padding-top: 190px !important;
+
+    &.admin-menu {
+      padding-top: 190px !important;
+    }
+  }
+  @media @normal {
+    padding-top: 248px !important;
+
+    &.admin-menu {
+      padding-top: 248px !important;
+    }
+  }
+}
+body.not-front.navbar-is-fixed-top {
+  padding-top: 95px !important;
+
+  &.admin-menu {
+    padding-top: 95px !important;
+  }
+
+  @media @narrow {
+    padding-top: 105px !important;
+
+    &.admin-menu {
+      padding-top: 105px !important;
+    }
+  }
+  @media @tablet {
+    padding-top: 142px !important;
+
+    &.admin-menu {
+      padding-top: 142px !important;
+    }
+  }
+  @media @normal {
+    padding-top: 186px !important;
+
+    &.admin-menu {
+      padding-top: 186px !important;
+    }
+  }
+}
+
+body {
+  .main-container {
+    #page-header {
+      .region-header {
+        // block title
+        h2.block-title {
+          margin: 20px 0 10px;
+          font-family: @pxl-text-font;
+          font-size: @font-size-larger;
+        }
+
+      }
+    }
+
+    //
+    // Frames of: Page title, Messages, Admin tabs, Action links and Main content
+    .row {
+      section { // column(s)
+
+        h1.page-header {
+          margin: 20px 0 10px;
+          font-family: @pxl-title-font;
+          font-size: @font-size-h1;
+        }
+
+        .breadcrumb {
+          display: none;
+        }
+
+        .messages {
+          margin-top: 20px;
+        }
+
+        ul.nav-tabs {
+          margin: 20px 0 5px;
+          li {
+            float: right;
+            a {
+              padding: 5px 10px;
+              font-family: @font-family-monospace;
+              font-size: @font-size-smaller;
+              border-radius: 0;
+            }
+          }
+        }
+
+        ul.action-links {
+          margin: 0;
+          li {
+            float: right;
+            a {
+              font-family: @font-family-monospace;
+              font-size: @font-size-smaller;
+            }
+          }
+        }
+
+        .region-content {
+
+        }
+
+      } // section
+    }  // row
+  }
+}

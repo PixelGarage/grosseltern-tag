@@ -1,0 +1,284 @@
+/* --------------------------------------------------
+ * Pixelgarage Mixins library
+ *
+ * Usage:
+ * .class {
+ *     #pxl-mixins.mixin;
+ * }
+ *
+ * --------------------------------------------------*/
+
+#pxl-mixins {
+  //
+  // To prevent the mixins without parameter to be output into the css-file, use () in definition
+  //
+  .no-list-style() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  //
+  // Box modifications
+  //
+  .border-radius(@radius: 0) {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+  }
+  // Drop shadows.
+  .box-shadow(@shadow) {
+    -webkit-box-shadow+: @shadow;
+    -moz-box-shadow+: @shadow;
+    box-shadow+: @shadow;
+  }
+  // Box sizing.
+  .box-sizing(@size) {
+    -webkit-box-sizing: @size;
+    -moz-box-sizing: @size;
+    box-sizing: @size;
+  }
+  // centers an element vertically in its container (block with height)
+  .center-vertically {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  // aligns an element vertically in its container (block with height)
+  .align-vertically(@y) {
+    position: relative;
+    top: @y;
+    -webkit-transform: translateY(-@y);
+    -ms-transform: translateY(-@y);
+    transform: translateY(-@y);
+  }
+
+  //
+  // Language dependant word hyphenation (language has to be set in html element)
+  //
+  .hyphenate(@mode: auto) {
+    // Warning: Needed for oldIE support, but words are broken up letter-by-letter
+    -ms-word-break: break-all;
+    //word-break: break-all;
+
+    // Non standard for webkit, breaks between words
+    word-break: break-word;
+
+    // uses dictionaries for correct word breaking in supported languages
+    -webkit-hyphens: @mode;
+    -moz-hyphens: @mode;
+    -ms-hyphens: @mode;
+    -o-hyphens: @mode;
+    hyphens: @mode;
+  }
+
+
+  //
+  // CSS3 Transformations (see also vendor-prefixes.less)
+  // (Only missing mixins added here)
+  //
+  .transition(@transition) {
+    -webkit-transition+: @transition;
+    -o-transition+: @transition;
+    transition+: @transition;
+  }
+  .translateX(@x) {
+    -webkit-transform: translateX(@x);
+    -ms-transform: translateX(@x); // IE9 only
+    -o-transform: translateX(@x);
+    transform: translateX(@x);
+  }
+  .translateY(@y) {
+    -webkit-transform: translateY(@y);
+    -ms-transform: translateY(@y); // IE9 only
+    -o-transform: translateY(@y);
+    transform: translateY(@y);
+  }
+  .translateZ(@z) {
+    -webkit-transform: translateZ(@z);
+    -ms-transform: translateZ(@z); // IE9 only
+    -o-transform: translateZ(@z);
+    transform: translateZ(@z);
+  }
+  .transform(@string) {
+    // multiple transformations are performed from right to left (matrix multiplication)
+    -webkit-transform+_:   @string;
+    -moz-transform+_: 	 @string;
+    -ms-transform+_: 		 @string;
+    -o-transform+_: 		 @string;
+    transform+_:           @string;
+  }
+  .transform-style(@style: flat) { // flat | preserve-3d
+    -webkit-transform-style: @style;
+    -moz-transform-style: @style; /** fixes non transitive 3d from parent and child **/
+    transform-style: @style;
+  }
+
+
+  //
+  // three part elements
+  //
+  .three-part-element (@left-img; @middle-img; @right-img; @bg-color: transparent; @height: 30px; @ends-width: 15px) {
+    position: relative;
+    display: block;
+    height: @height;
+    width: auto;
+
+    /* give the pseudo-elements space due to absolute positioning */
+    margin: 0 @ends-width;
+    border: 0;
+    outline: 0;
+    background: @bg-color @middle-img top left / auto 100% repeat-x;
+
+    &::before,
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      width: @ends-width;
+      height: @height;
+    }
+    &::before {
+      left: -@ends-width;
+      background: @bg-color @left-img top right / auto 100%  no-repeat;
+    }
+    &::after {
+      right: -@ends-width;
+      background: @bg-color @right-img top left / auto 100%  no-repeat;
+    }
+  }
+
+
+  //
+  // wysiwyg body
+  //
+  .wysiwyg-body() {
+    h1, h2, h3, h4, h5, h6 {
+      font-family: @pxl-text-font;
+      font-size: @font-size-base;
+    }
+    h1, h2, h3 {
+      font-size: @font-size-large;
+    }
+
+    p, tbody td {
+      font-family: @pxl-text-font;
+      font-size: @font-size-base;
+      .hyphenate;
+    }
+
+    pre, address {
+      font-family: @pxl-text-font-italics;
+      font-size: @font-size-base;
+    }
+
+    hr {
+      border: 0;
+      border-bottom: 2px solid @text-color;
+      background: none;
+    }
+
+    img, embed, video, audio, iframe {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  //
+  // webform
+  //
+  .webform-client-form() {
+    .webform-component {
+      label {
+        font-family: @pxl-text-font;
+        font-size: @font-size-base;
+        letter-spacing: 1.2px;
+        text-align: center;
+        text-transform: uppercase;
+        color: @text-color;
+      }
+
+      div.description {
+
+      }
+
+      input, textarea {
+        font-family: @pxl-text-font;
+        font-size: @font-size-base;
+        letter-spacing: 1.1px;
+        text-align: center;
+        color: @text-color;
+        border-bottom: 1px solid @text-color;
+
+        &.form-text {
+          &.form-email {
+
+          }
+        }
+      }
+
+      button {
+
+      }
+      .form-textarea-wrapper {
+        textarea {
+
+        }
+
+        div.grippie {
+
+        }
+      }
+
+      .form-managed-file {
+        input {
+
+        }
+
+        span.input-group-btn {
+        }
+      }
+    }
+
+    div.form-actions {
+      button.webform-submit {
+
+      }
+    }
+  }
+
+  .submit-button(@color: #fff; @bg-color: @gray-light) {
+    display: inline-block;
+    margin: 0;
+    padding: 3px 8px;
+    font-family: @pxl-text-font-bold;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: @color;
+    outline: none;
+    .border-radius(@border-radius-base);
+    border: 1px solid darken(@bg-color, 5%);
+    background-color: @bg-color;
+
+    @media @tablet {
+      padding: 4px 12px;
+      font-size: 14px;
+    }
+    @media @normal {
+      padding: 6px 15px;
+      font-size: 17px;
+    }
+
+    &:hover {
+      color: @bg-color;
+      background: none;
+    }
+  }
+
+}
+

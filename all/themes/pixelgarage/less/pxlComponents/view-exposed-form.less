@@ -1,0 +1,136 @@
+/*
+ *  Exposed form
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+
+
+// Mixins
+// -------------------------
+
+
+// Main settings
+// -------------------------
+form#views-exposed-form-post-grid-page-clickcard {
+  .views-exposed-form {
+    padding: 0;
+    width: 100%;
+
+    .views-exposed-widgets {
+      margin: 0 auto;
+      padding: 10px 0 0;
+
+      @media @narrow {
+        padding: 20px 0 0;
+      }
+      @media @normal {
+        padding: 30px 0 0;
+      }
+
+      .views-exposed-widget {
+        display: inline-block;
+        float: none;
+        padding: 0;
+        vertical-align: top;
+        text-align: center;
+
+        &.views-widget-filter-combine {
+          > label {
+            display: none;
+          }
+
+          .views-widget {
+            .form-item {
+              input.form-text {
+                padding: 3px 10px 0;
+                height: 24px;
+                max-width: 200px;
+                font-family: @pxl-text-font-light;
+                font-size: 12px;
+                .placeholder(@pxl-color-orange);
+                #pxl-mixins.border-radius(@border-radius-base);
+                .border-right-radius(0);
+                border: 1px solid @pxl-color-orange;
+
+                &:focus {
+                  #pxl-mixins.box-shadow(0 0 2px @pxl-color-orange inset);
+                }
+
+                @media @narrow {
+                  height: 28px;
+                  font-size: 14px;
+                }
+                @media @normal {
+                  height: 32px;
+                  font-size: 17px;
+                }
+              }
+            }
+          }
+        }
+
+        &.views-submit-button {
+          margin: 0 0 0 -4px;
+          padding: 0;
+
+          button {
+            display: inline-block;
+            margin: 0;
+            padding: 3px 10px 0;
+            height: 24px;
+            font-family: @pxl-text-font-bold;
+            font-size: 12px;
+            line-height: 1;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #fff;
+            outline: none;
+            #pxl-mixins.border-radius(@border-radius-base);
+            .border-left-radius(0);
+            border: 1px solid @pxl-color-orange;
+            background-color: @pxl-color-orange;
+
+            @media @narrow {
+              padding: 4px 12px 0;
+              height: 28px;
+              font-size: 14px;
+            }
+            @media @normal {
+              padding: 6px 15px 0;
+              height: 32px;
+              font-size: 17px;
+            }
+
+            &:hover {
+              color: @pxl-color-orange;
+              background: none;
+            }
+          }
+        }
+
+        &.views-total-rows {
+          height: 24px;
+          padding: 3px 0 0 10px;
+          font-family: @pxl-text-font-light;
+          font-size: 12px;
+
+          @media @narrow {
+            padding: 6px 0 0 10px;
+            height: 28px;
+            font-size: 14px;
+          }
+          @media @normal {
+            padding: 6px 0 0 10px;
+            height: 32px;
+            font-size: 17px;
+          }
+
+          em {
+            font-style: normal;
+          }
+        }
+      }
+    }
+  }
+}

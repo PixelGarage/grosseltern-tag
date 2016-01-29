@@ -1,0 +1,58 @@
+/*
+ *  Transformation mixins
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+
+
+// Mixins
+// -------------------------
+#pxl-mixins {
+  //
+  // CSS3 Transformations (see also vendor-prefixes.less)
+  // (Only missing mixins added here)
+  //
+  .transition(@transition) {
+    -webkit-transition+: @transition;
+    -o-transition+: @transition;
+    transition+: @transition;
+  }
+
+  .translateX(@x) {
+    -webkit-transform: translateX(@x);
+    -ms-transform: translateX(@x); // IE9 only
+    -o-transform: translateX(@x);
+    transform: translateX(@x);
+  }
+
+  .translateY(@y) {
+    -webkit-transform: translateY(@y);
+    -ms-transform: translateY(@y); // IE9 only
+    -o-transform: translateY(@y);
+    transform: translateY(@y);
+  }
+
+  .translateZ(@z) {
+    -webkit-transform: translateZ(@z);
+    -ms-transform: translateZ(@z); // IE9 only
+    -o-transform: translateZ(@z);
+    transform: translateZ(@z);
+  }
+
+  .transform(@string) {
+    // multiple transformations are performed from right to left (matrix multiplication)
+    -webkit-transform+_:   @string;
+    -moz-transform+_: 	 @string;
+    -ms-transform+_: 		 @string;
+    -o-transform+_: 		 @string;
+    transform+_:           @string;
+  }
+
+  .transform-style(@style: flat) { // flat | preserve-3d
+    -webkit-transform-style: @style;
+    -moz-transform-style: @style; /** fixes non transitive 3d from parent and child **/
+    transform-style: @style;
+  }
+
+}

@@ -1,0 +1,61 @@
+/*
+ *  Box modificarion mixins
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+
+
+// Mixins
+// -------------------------
+#pxl-mixins {
+  //
+  // Box modifications
+  //
+  .border-radius(@radius: 0) {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+  }
+
+  // Drop shadows.
+  .box-shadow(@shadow) {
+    -webkit-box-shadow+: @shadow;
+    -moz-box-shadow+: @shadow;
+    box-shadow+: @shadow;
+  }
+
+  // Box sizing.
+  .box-sizing(@size) {
+    -webkit-box-sizing: @size;
+    -moz-box-sizing: @size;
+    box-sizing: @size;
+  }
+
+  // centers an element horizontally/vertically in its container (block with height)
+  .center-horizontally {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .center-vertically {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  // aligns an element vertically in its container (block with height)
+  .align-vertically(@y) {
+    position: relative;
+    top: @y;
+    -webkit-transform: translateY(-@y);
+    -ms-transform: translateY(-@y);
+    transform: translateY(-@y);
+  }
+
+
+}
