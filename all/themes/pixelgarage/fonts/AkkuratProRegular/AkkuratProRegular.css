@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'AkkuratProRegular';
+    src: url('fonts/AkkuratProRegular.eot');
+    src: url('fonts/AkkuratProRegular.eot') format('embedded-opentype'),
+         url('fonts/AkkuratProRegular.woff2') format('woff2'),
+         url('fonts/AkkuratProRegular.woff') format('woff'),
+         url('fonts/AkkuratProRegular.ttf') format('truetype'),
+         url('fonts/AkkuratProRegular.svg#AkkuratProRegular') format('svg');
+}

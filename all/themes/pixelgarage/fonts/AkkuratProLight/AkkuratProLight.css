@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'AkkuratProLight';
+    src: url('fonts/AkkuratProLight.eot');
+    src: url('fonts/AkkuratProLight.eot') format('embedded-opentype'),
+         url('fonts/AkkuratProLight.woff2') format('woff2'),
+         url('fonts/AkkuratProLight.woff') format('woff'),
+         url('fonts/AkkuratProLight.ttf') format('truetype'),
+         url('fonts/AkkuratProLight.svg#AkkuratProLight') format('svg');
+}

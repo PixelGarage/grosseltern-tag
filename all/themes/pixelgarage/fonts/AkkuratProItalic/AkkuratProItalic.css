@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'AkkuratProItalic';
+    src: url('fonts/AkkuratProItalic.eot');
+    src: url('fonts/AkkuratProItalic.eot') format('embedded-opentype'),
+         url('fonts/AkkuratProItalic.woff2') format('woff2'),
+         url('fonts/AkkuratProItalic.woff') format('woff'),
+         url('fonts/AkkuratProItalic.ttf') format('truetype'),
+         url('fonts/AkkuratProItalic.svg#AkkuratProItalic') format('svg');
+}

@@ -41,6 +41,7 @@
   height: 100%;
   //overflow: hidden;
 
+
   // Front of card
   &.view-mode-front {
     .category-icon;
@@ -55,13 +56,13 @@
 
         .field-name-field-name {
           position: absolute;
-          top: 56.9%;
-          left: -2%;
+          top: -22px;
           padding: 0.2em 1em 0;
-          width: auto;
+          width: 100%;
           font-family: @pxl-text-font-light;
           font-size: 16px;
-          text-transform: uppercase;
+          font-style: italic;
+          //text-transform: uppercase;
           text-align: center;
           letter-spacing: 1px;
           line-height: 1.2em;
@@ -88,7 +89,8 @@
           #pxl-mixins.hyphenate(auto);
 
           .field-item {
-            font-family: @pxl-text-font-light;
+            font-family: @pxl-text-font-medium;
+            font-style: italic;
             font-size: 14px;
 
             @media @narrow {
@@ -232,19 +234,20 @@
         }
 
         .field-name-field-name {
-          position: absolute;
-          top: 56.9%;
-          left: -2%;
-          padding: 0.2em 1em 0;
-          width: auto;
-          font-family: @pxl-text-font-light;
-          font-size: 16px;
-          text-transform: uppercase;
-          text-align: center;
-          letter-spacing: 1px;
-          line-height: 1.2em;
-          color: @pxl-name-field-color;
-          background-color: @pxl-name-field-bg-color-left;
+          display: none;
+          //position: absolute;
+          //top: 56.9%;
+          //left: -2%;
+          //padding: 0.2em 1em 0;
+          //width: auto;
+          //font-family: @pxl-text-font-light;
+          //font-size: 16px;
+          //text-transform: uppercase;
+          //text-align: center;
+          //letter-spacing: 1px;
+          //line-height: 1.2em;
+          //color: @pxl-name-field-color;
+          //background-color: @pxl-name-field-bg-color-left;
         }
 
         .field-name-field-quote {

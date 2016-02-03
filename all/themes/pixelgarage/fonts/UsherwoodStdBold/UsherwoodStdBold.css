@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'UsherwoodStdBold';
+    src: url('fonts/UsherwoodStdBold.eot');
+    src: url('fonts/UsherwoodStdBold.eot') format('embedded-opentype'),
+         url('fonts/UsherwoodStdBold.woff2') format('woff2'),
+         url('fonts/UsherwoodStdBold.woff') format('woff'),
+         url('fonts/UsherwoodStdBold.ttf') format('truetype'),
+         url('fonts/UsherwoodStdBold.svg#UsherwoodStdBold') format('svg');
+}

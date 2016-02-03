@@ -14,7 +14,7 @@
 // -------------------------
 form#views-exposed-form-post-grid-page-clickcard {
   .views-exposed-form {
-    padding: 0;
+    padding: 0 0 10px;
     width: 100%;
 
     .views-exposed-widgets {
@@ -48,14 +48,15 @@ form#views-exposed-form-post-grid-page-clickcard {
                 max-width: 200px;
                 font-family: @pxl-text-font-light;
                 font-size: 12px;
-                .placeholder(@pxl-color-orange);
-                #pxl-mixins.border-radius(@border-radius-base);
-                .border-right-radius(0);
-                border: 1px solid @pxl-color-orange;
+                //.placeholder(@pxl-color-orange);
+                //#pxl-mixins.border-radius(@border-radius-base);
+                //.border-right-radius(0);
+                border: none;
+                border-bottom: 1px solid;
 
-                &:focus {
-                  #pxl-mixins.box-shadow(0 0 2px @pxl-color-orange inset);
-                }
+                //&:focus {
+                  //#pxl-mixins.box-shadow(0 0 2px @pxl-color-orange inset);
+                //}
 
                 @media @narrow {
                   height: 28px;
@@ -79,17 +80,17 @@ form#views-exposed-form-post-grid-page-clickcard {
             margin: 0;
             padding: 3px 10px 0;
             height: 24px;
-            font-family: @pxl-text-font-bold;
+            font-family: @pxl-text-font-light;
             font-size: 12px;
             line-height: 1;
             letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #fff;
+            //text-transform: uppercase;
+            color: #000;
             outline: none;
-            #pxl-mixins.border-radius(@border-radius-base);
-            .border-left-radius(0);
-            border: 1px solid @pxl-color-orange;
-            background-color: @pxl-color-orange;
+            //#pxl-mixins.border-radius(@border-radius-base);
+            //.border-left-radius(0);
+            border: none;
+            //background-color: @pxl-color-orange;
 
             @media @narrow {
               padding: 4px 12px 0;

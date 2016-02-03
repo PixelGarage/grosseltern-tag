@@ -28,7 +28,7 @@ header#navbar {
         position: absolute;
         right: @grid-gutter-width / 2;
         top: 20px;
-        font-family: @pxl-text-font-bold;
+        font-family: @pxl-text-font-light;
         font-size: @font-size-large;
       }
     }
@@ -84,7 +84,7 @@ header#navbar {
 
     // collapse part
     .navbar-collapse {
-      padding: 5px 0;
+      padding: 0;
       background: #fff none;
 
       nav {
@@ -108,13 +108,13 @@ header#navbar {
               cursor: pointer;
               display: inline-block;
               padding: 3px 5px 0;
-              font-family: @pxl-text-font-bold;
+              font-family: @pxl-text-font-light;
               font-size: 11px;
               line-height: 1;
               letter-spacing: 1px;
               color: @pxl-color-gold;
               outline: none;
-              border-right: 1px solid @pxl-color-gold;
+              //border-right: 1px solid @pxl-color-gold;
 
               &:hover,
               &.active,
@@ -122,29 +122,32 @@ header#navbar {
                 color: @pxl-color-orange;
                 background: none;
               }
+
+              &:after {
+                content: "/";
+                position: absolute;
+                right: -5px;
+              }
             }
 
-            &.first  a {
+            /*&.first  a {
               padding: 7px 15px 3px;
               color: white;
               #pxl-mixins.border-radius(3px);
               border: 1px solid @pxl-color-orange;
               background-color: @pxl-color-orange;
+              content: " "; */
 
               &:hover, &.active, &.checked {
                 color: @pxl-color-orange;
                 background: none;
               }
-            }
-            &.last a {
-              border-right: none;
-            }
-
+            //}
           }
         }
       }
       @media @narrow {
-        padding: 5px 0;
+        padding: 0;
         nav {
           ul.menu {
             li {
@@ -157,7 +160,7 @@ header#navbar {
         }
       }
       @media @tablet {
-        padding: 10px 0;
+        padding: 0;
         nav {
           ul.menu {
             li {
@@ -170,7 +173,7 @@ header#navbar {
         }
       }
       @media @normal {
-        padding: 15px 0;
+        padding: 0;
         nav {
           ul.menu {
             li {
