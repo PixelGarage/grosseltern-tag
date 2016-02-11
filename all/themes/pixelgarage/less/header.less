@@ -76,7 +76,7 @@ header#navbar {
 
         &:hover {
           color: #fff;
-          background-color: @pxl-color-gold;
+          background-color: @pxl-color-black;
         }
       }
 
@@ -112,14 +112,14 @@ header#navbar {
               font-size: 11px;
               line-height: 1;
               letter-spacing: 1px;
-              color: @pxl-color-gold;
+              color: @pxl-color-black;
               outline: none;
-              //border-right: 1px solid @pxl-color-gold;
+              //border-right: 1px solid @pxl-color-black;
 
               &:hover,
               &.active,
               &.checked {
-                color: @pxl-color-orange;
+                color: @pxl-color-gold;
                 background: none;
               }
 
@@ -130,19 +130,14 @@ header#navbar {
               }
             }
 
-            /*&.first  a {
-              padding: 7px 15px 3px;
-              color: white;
-              #pxl-mixins.border-radius(3px);
-              border: 1px solid @pxl-color-orange;
-              background-color: @pxl-color-orange;
-              content: " "; */
+            &.last a:after {
+              display: none;
 
               &:hover, &.active, &.checked {
-                color: @pxl-color-orange;
+                color: @pxl-color-gold;
                 background: none;
               }
-            //}
+            }
           }
         }
       }

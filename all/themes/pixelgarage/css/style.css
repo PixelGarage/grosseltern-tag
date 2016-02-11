@@ -1060,7 +1060,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: 'UniversLTStd', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 16px;
   line-height: 1.42857143;
   color: #333333;
@@ -5798,7 +5798,7 @@ button.close {
   z-index: 1070;
   display: block;
   visibility: visible;
-  font-family: 'UniversLTStd', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.4;
@@ -5905,7 +5905,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: 'UniversLTStd', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 16px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -9056,7 +9056,7 @@ form#user-login {
  * --------------------------------------------------*/
 #block-locale-language {
   display: none;
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 16px;
 }
 @media screen and (min-width: 768px) {
@@ -9223,7 +9223,7 @@ form#user-login {
   border-bottom: 3px solid #ffffff;
 }
 .node-post.view-mode-back div.row div.col-sm-12 .field-name-quote p {
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -9382,7 +9382,7 @@ form#user-login {
   text-align: center;
 }
 .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-quote .field-item {
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 4.5vw;
 }
 @media screen and (min-width: 480px) {
@@ -9407,7 +9407,7 @@ form#user-login {
 }
 .node-post.view-mode-full div.row div.col-sm-6.right-region .field-name-title h2 {
   margin: 0;
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 45px;
   color: #333333;
   border-bottom: 2px solid #333333;
@@ -9419,7 +9419,7 @@ form#user-login {
  *  Node / block webform component
  * --------------------------------------------------*/
 .webform-confirmation p {
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 20px;
   text-align: left;
   color: #333333;
@@ -9473,7 +9473,7 @@ form#user-login {
 }
 .node-webform div.col-sm-6 form.webform-client-form .webform-component label {
   width: auto;
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 11px;
   letter-spacing: 1.2px;
   text-align: left;
@@ -9496,14 +9496,14 @@ form#user-login {
 .node-webform div.col-sm-6 form.webform-client-form .webform-component div.description {
   display: block;
   margin: 10px 0 0;
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 11px;
 }
 .node-webform div.col-sm-6 form.webform-client-form .webform-component input,
 .node-webform div.col-sm-6 form.webform-client-form .webform-component textarea {
   padding: 2px 10px 0;
   height: auto;
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 11px;
   letter-spacing: 1.1px;
   text-align: left;
@@ -9512,7 +9512,7 @@ form#user-login {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  border: 1px solid #dddddd;
+  border: 1px solid #222222;
 }
 @media screen and (min-width: 480px) {
   .node-webform div.col-sm-6 form.webform-client-form .webform-component input,
@@ -9540,7 +9540,7 @@ form#user-login {
   position: relative;
   overflow-x: auto;
   white-space: nowrap;
-  border: 1px solid #dddddd;
+  border: 1px solid #222222;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -9686,7 +9686,7 @@ form#user-login {
   display: none;
   margin: 3px 0 0 0;
   vertical-align: top;
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 16px;
   text-align: left;
   color: #333333;
@@ -9716,7 +9716,7 @@ form#user-login {
 }
 .block-webform .node-webform div.col-sm-12 form.webform-client-form .webform-component input {
   padding: 5px;
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 12px;
   text-align: left;
   color: #333333;
@@ -9784,7 +9784,7 @@ form#user-login {
   }
 }
 .block-webform .webform-confirmation p {
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 11px;
   text-align: left;
   color: #333333;
@@ -9832,7 +9832,7 @@ form#user-login {
 .node-page div.col-sm-12 .field-name-body h4,
 .node-page div.col-sm-12 .field-name-body h5,
 .node-page div.col-sm-12 .field-name-body h6 {
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 13.125px;
 }
 @media screen and (min-width: 480px) {
@@ -9876,7 +9876,7 @@ form#user-login {
 }
 .node-page div.col-sm-12 .field-name-body p,
 .node-page div.col-sm-12 .field-name-body tbody td {
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 11px;
   -ms-word-break: break-all;
   word-break: break-word;
@@ -9986,7 +9986,7 @@ body.page-node-226 .node-page div.col-sm-12 .field-name-body h5,
 body.page-node-222 .node-page div.col-sm-12 .field-name-body h6,
 body.page-node-225 .node-page div.col-sm-12 .field-name-body h6,
 body.page-node-226 .node-page div.col-sm-12 .field-name-body h6 {
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 13.125px;
 }
 @media screen and (min-width: 480px) {
@@ -10076,7 +10076,7 @@ body.page-node-226 .node-page div.col-sm-12 .field-name-body p,
 body.page-node-222 .node-page div.col-sm-12 .field-name-body tbody td,
 body.page-node-225 .node-page div.col-sm-12 .field-name-body tbody td,
 body.page-node-226 .node-page div.col-sm-12 .field-name-body tbody td {
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 11px;
   -ms-word-break: break-all;
   word-break: break-word;
@@ -10429,8 +10429,14 @@ form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-expo
   max-width: 200px;
   font-family: 'AkkuratProLight', sans-serif;
   font-size: 12px;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   border: none;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #222222;
 }
 @media screen and (min-width: 480px) {
   form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-widget-filter-combine .views-widget .form-item input.form-text {
@@ -10590,13 +10596,6 @@ header#navbar .navbar-top-container > .container .navbar-collapse nav ul.menu > 
   float: none;
   padding: 0;
   line-height: 1;
-  /*&.first  a {
-              padding: 7px 15px 3px;
-              color: white;
-              #pxl-mixins.border-radius(3px);
-              border: 1px solid @pxl-color-orange;
-              background-color: @pxl-color-orange;
-              content: " "; */
 }
 header#navbar .navbar-top-container > .container .navbar-collapse nav ul.menu > li a,
 header#navbar .navbar-top-container > .container .navbar-collapse nav ul.menu > li span {
@@ -10625,9 +10624,12 @@ header#navbar .navbar-top-container > .container .navbar-collapse nav ul.menu > 
   position: absolute;
   right: -5px;
 }
-header#navbar .navbar-top-container > .container .navbar-collapse nav ul.menu > li:hover,
-header#navbar .navbar-top-container > .container .navbar-collapse nav ul.menu > li.active,
-header#navbar .navbar-top-container > .container .navbar-collapse nav ul.menu > li.checked {
+header#navbar .navbar-top-container > .container .navbar-collapse nav ul.menu > li.last a:after {
+  display: none;
+}
+header#navbar .navbar-top-container > .container .navbar-collapse nav ul.menu > li.last a:after:hover,
+header#navbar .navbar-top-container > .container .navbar-collapse nav ul.menu > li.last a:after.active,
+header#navbar .navbar-top-container > .container .navbar-collapse nav ul.menu > li.last a:after.checked {
   color: #b69863;
   background: none;
 }
@@ -10734,12 +10736,12 @@ body.not-front.navbar-is-fixed-top.admin-menu {
 }
 body .main-container #page-header .region-header h2.block-title {
   margin: 20px 0 10px;
-  font-family: 'UniversLTStdCn', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 24px;
 }
 body .main-container .row section h1.page-header {
   margin: 20px 0 10px;
-  font-family: 'UniversLTStd', sans-serif;
+  font-family: 'AkkuratProRegular', sans-serif;
   font-size: 41px;
 }
 body .main-container .row section .breadcrumb {

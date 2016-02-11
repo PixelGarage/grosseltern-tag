@@ -48,14 +48,14 @@ form#views-exposed-form-post-grid-page-clickcard {
                 max-width: 200px;
                 font-family: @pxl-text-font-light;
                 font-size: 12px;
-                //.placeholder(@pxl-color-orange);
-                //#pxl-mixins.border-radius(@border-radius-base);
-                //.border-right-radius(0);
+                //.placeholder(@pxl-color-gold);
+                #pxl-mixins.border-radius(0);
+                #pxl-mixins.box-shadow(none);
                 border: none;
-                border-bottom: 1px solid;
+                border-bottom: 1px solid @pxl-color-border;
 
                 //&:focus {
-                  //#pxl-mixins.box-shadow(0 0 2px @pxl-color-orange inset);
+                  //#pxl-mixins.box-shadow(0 0 2px @pxl-color-gold inset);
                 //}
 
                 @media @narrow {
@@ -90,7 +90,7 @@ form#views-exposed-form-post-grid-page-clickcard {
             //#pxl-mixins.border-radius(@border-radius-base);
             //.border-left-radius(0);
             border: none;
-            //background-color: @pxl-color-orange;
+            //background-color: @pxl-color-gold;
 
             @media @narrow {
               padding: 4px 12px 0;
@@ -104,7 +104,7 @@ form#views-exposed-form-post-grid-page-clickcard {
             }
 
             &:hover {
-              color: @pxl-color-orange;
+              color: @pxl-color-gold;
               background: none;
             }
           }
