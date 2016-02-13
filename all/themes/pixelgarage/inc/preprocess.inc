@@ -25,26 +25,6 @@ function pixelgarage_preprocess_page(&$vars) {
 
   // replace logo with .svg
   $vars['logo'] = str_replace('.jpg', '.svg', $vars['logo']);
-
-  // add node category class, if node = 'post' in full mode
-  if (isset($vars['node']) && $vars['node']->type == 'post') {
-    $node = $vars['node'];
-    $vars['post_category_class'] = '';
-    $tid = (!empty($node->field_category) && $node->field_category[LANGUAGE_NONE][0]['tid']) ? $node->field_category[LANGUAGE_NONE][0]['tid'] : null;
-    $query = new EntityFieldQuery();
-    $query->entityCondition('entity_type', 'taxonomy_term')
-      ->entityCondition('bundle', 'category')
-      ->propertyCondition('tid', $tid);
-    $result = $query->execute();
-
-    if (isset($result['taxonomy_term'])) {
-      $tids = array_keys($result['taxonomy_term']);
-      $terms = taxonomy_term_load_multiple($tids);
-      foreach ($terms as $term) {
-        $vars['post_category_class'] = ' class="' . drupal_clean_css_identifier( $term->field_css_class[LANGUAGE_NONE][0]['value']) . '"';
-      }
-    }
-  }
 }
 
 /**
@@ -99,22 +79,17 @@ function pixelgarage_preprocess_webform_confirmation(&$vars) {
   node_object_prepare($post);
 
   // fill the node properties and save it to the database
-  $post->title = $submission->data[4][0] . ", " . $submission->data[13][0];
+  $post->title = $submission->data[4][0];
   $post->field_e_mail[$post->language][0]['email'] = $submission->data[2][0]; // email
   $post->field_name[$post->language][0]['value'] = $submission->data[4][0]; // Name(s)
-  $post->field_plz[$post->language][0]['value'] = (isset($submission->data[12])) ? $submission->data[12] : '#ext'; // PLZ
-  $post->field_city[$post->language][0]['value'] = $submission->data[13][0]; // City
-  $post->field_category[$post->language][0]['tid'] = $submission->data[11][0]; // Category
   $post->field_image[$post->language][0]['fid'] = $submission->data[1][0]; // fid
   $post->field_quote[$post->language][0]['value'] = substr($submission->data[5][0], 0, 70); // Quote
+  $post->field_thanks[$post->language][0]['value'] = substr($submission->data[11][0], 0, 20); // Thanks
 
   $post = node_submit($post);
   node_save($post);
 
   // get node and render it
-  $term = taxonomy_term_load($submission->data[11][0]); // category tid
-  $vars['post_category_class'] = drupal_clean_css_identifier( $term->field_css_class[LANGUAGE_NONE][0]['value']);
-
   $post = node_load($post->nid);
   $vars['post'] = node_view($post, 'full');
 }

@@ -14,20 +14,11 @@
 // Mixins
 // -------------------------
 .category-icon() {
-  .i18n-de .image-me & { background: #fff url('../images/d_ich.svg') no-repeat center bottom/contain; }
-  .i18n-de .image-you & { background: #fff url('../images/d_du.svg') no-repeat center bottom/contain; }
-  .i18n-de .image-we & { background: #fff url('../images/d_wir.svg') no-repeat center bottom/contain; }
-  .i18n-de .image-you-all & { background: #fff url('../images/d_ihr.svg') no-repeat center bottom/contain; }
+  .i18n-de & { background: #fff url('../images/d_danke.svg') no-repeat center bottom/contain; }
 
-  .i18n-en .image-me & { background: #fff url('../images/e_ich.svg') no-repeat center bottom/contain; }
-  .i18n-en .image-you & { background: #fff url('../images/e_du.svg') no-repeat center bottom/contain; }
-  .i18n-en .image-we & { background: #fff url('../images/e_wir.svg') no-repeat center bottom/contain; }
-  .i18n-en .image-you-all & { background: #fff url('../images/e_ihr.svg') no-repeat center bottom/contain; }
+  .i18n-en & { background: #fff url('../images/e_danke.svg') no-repeat center bottom/contain; }
 
-  .i18n-fr .image-me & { background: #fff url('../images/f_moi.svg') no-repeat center bottom/contain; }
-  .i18n-fr .image-you & { background: #fff url('../images/f_toi.svg') no-repeat center bottom/contain; }
-  .i18n-fr .image-we & { background: #fff url('../images/f_wir.svg') no-repeat center bottom/contain; }
-  .i18n-fr .image-you-all & { background: #fff url('../images/f_ihr.svg') no-repeat center bottom/contain; }
+  .i18n-fr & { background: #fff url('../images/f_danke.svg') no-repeat center bottom/contain; }
 }
 
 
@@ -82,7 +73,7 @@
           overflow: hidden;
           top: 73%;
           right: 0;
-          width: 54%;
+          width: 65%;
           height: auto;
           line-height: 16px;
           text-align: center;
@@ -104,6 +95,36 @@
             }
           }
         }
+
+        .field-name-field-thanks {
+          position: absolute;
+          overflow: hidden;
+          bottom: -1px;
+          left: 0;
+          width: 100%;
+          height: auto;
+          text-align: center;
+
+          .field-item {
+            font-family: @pxl-title-font;
+            font-size: 18px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1;
+          }
+
+          @media @narrow {
+            bottom: -3px;
+          }
+          @media @wide {
+            bottom: -1px;
+            .field-item {
+              font-size: 20px;
+            }
+          }
+        }
+
       }
     }
   }
@@ -235,19 +256,6 @@
 
         .field-name-field-name {
           display: none;
-          //position: absolute;
-          //top: 56.9%;
-          //left: -2%;
-          //padding: 0.2em 1em 0;
-          //width: auto;
-          //font-family: @pxl-text-font-light;
-          //font-size: 16px;
-          //text-transform: uppercase;
-          //text-align: center;
-          //letter-spacing: 1px;
-          //line-height: 1.2em;
-          //color: @pxl-name-field-color;
-          //background-color: @pxl-name-field-bg-color-left;
         }
 
         .field-name-field-quote {
@@ -255,7 +263,7 @@
           overflow: hidden;
           top: 74%;
           right: 0;
-          width: 54%;
+          width: 65%;
           height: auto;
           #pxl-mixins.hyphenate(auto);
           text-align: center;
@@ -275,6 +283,49 @@
             }
           }
         }
+
+        .field-name-field-thanks {
+          position: absolute;
+          overflow: hidden;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: auto;
+          text-align: center;
+
+          .field-item {
+            font-family: @pxl-title-font;
+            font-size: 18px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+          }
+
+          @media @narrow {
+            bottom: -3px;
+            .field-item {
+              line-height: 1;
+            }
+          }
+          @media @tablet {
+            bottom: -3px;
+            .field-item {
+              line-height: 1.2;
+            }
+          }
+          @media @normal {
+            .field-item {
+              font-size: 28px;
+              line-height: 1;
+            }
+          }
+          @media @wide {
+            bottom: 0;
+          }
+
+        }
+
       }
 
       &.right-region {

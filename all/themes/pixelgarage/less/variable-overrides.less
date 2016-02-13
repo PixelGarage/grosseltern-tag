@@ -8,7 +8,7 @@
 //== Colors
 //
 @pxl-color-gold: #B69863; //Gold/
-@pxl-color-black: #000;
+@pxl-color-black: #222;
 @pxl-color-border: #222;
 @pxl-color-border-active: @pxl-color-gold;
 
@@ -48,6 +48,19 @@
 
 //== Media queries breakpoints
 //
+// Extra small screen / phone
+//** Deprecated `@screen-xs-min` as of v3.2.0
+@screen-xs-min:              480px;
+
+// Small screen / tablet
+@screen-sm-min:              768px;
+
+// Medium screen / desktop
+@screen-md-min:              1024px;
+
+// Large screen / wide desktop
+@screen-lg-min:              1280px;
+
 // Media queries maximums
 @screen-xs-max:              (@screen-sm-min - 1);
 @screen-sm-max:              (@screen-md-min - 1);
