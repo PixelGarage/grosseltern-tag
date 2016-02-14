@@ -99,7 +99,7 @@
         .field-name-field-thanks {
           position: absolute;
           overflow: hidden;
-          bottom: -1px;
+          bottom: -2px;
           left: 0;
           width: 100%;
           height: auto;
@@ -107,15 +107,24 @@
 
           .field-item {
             font-family: @pxl-title-font;
-            font-size: 18px;
+            font-size: 6vw;
             color: #fff;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             line-height: 1;
           }
 
           @media @narrow {
+            bottom: -4px;
+            .field-item {
+              font-size: 3.75vw;
+            }
+          }
+          @media @tablet {
             bottom: -3px;
+            .field-item {
+              font-size: 18px;
+            }
           }
           @media @wide {
             bottom: -1px;
@@ -295,33 +304,39 @@
 
           .field-item {
             font-family: @pxl-title-font;
-            font-size: 18px;
+            font-size: 6vw;
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 1px;
-            line-height: 1.2;
+            line-height: 1;
           }
 
           @media @narrow {
-            bottom: -3px;
+            bottom: -2px;
             .field-item {
-              line-height: 1;
+              font-size: 3.75vw;
             }
           }
           @media @tablet {
-            bottom: -3px;
+            bottom: 0;
             .field-item {
-              line-height: 1.2;
+              font-size: 18px;
+              line-height: 1;
             }
           }
           @media @normal {
+            bottom: -4px;
             .field-item {
               font-size: 28px;
               line-height: 1;
             }
           }
           @media @wide {
-            bottom: 0;
+            bottom: -2px;
+            .field-item {
+              font-size: 32px;
+              line-height: 1;
+            }
           }
 
         }

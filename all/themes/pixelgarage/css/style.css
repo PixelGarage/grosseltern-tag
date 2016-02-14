@@ -9189,7 +9189,7 @@ form#user-login {
 .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks {
   position: absolute;
   overflow: hidden;
-  bottom: -1px;
+  bottom: -2px;
   left: 0;
   width: 100%;
   height: auto;
@@ -9197,15 +9197,26 @@ form#user-login {
 }
 .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks .field-item {
   font-family: 'UsherwoodStdBold', serif;
-  font-size: 18px;
+  font-size: 6vw;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   line-height: 1;
 }
 @media screen and (min-width: 480px) {
   .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks {
+    bottom: -4px;
+  }
+  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks .field-item {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks {
     bottom: -3px;
+  }
+  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks .field-item {
+    font-size: 18px;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -9392,29 +9403,33 @@ form#user-login {
 }
 .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-thanks .field-item {
   font-family: 'UsherwoodStdBold', serif;
-  font-size: 18px;
+  font-size: 6vw;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  line-height: 1.2;
+  line-height: 1;
 }
 @media screen and (min-width: 480px) {
   .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-thanks {
-    bottom: -3px;
+    bottom: -2px;
   }
   .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-thanks .field-item {
-    line-height: 1;
+    font-size: 3.75vw;
   }
 }
 @media screen and (min-width: 768px) {
   .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-thanks {
-    bottom: -3px;
+    bottom: 0;
   }
   .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-thanks .field-item {
-    line-height: 1.2;
+    font-size: 18px;
+    line-height: 1;
   }
 }
 @media screen and (min-width: 1024px) {
+  .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-thanks {
+    bottom: -4px;
+  }
   .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-thanks .field-item {
     font-size: 28px;
     line-height: 1;
@@ -9422,7 +9437,11 @@ form#user-login {
 }
 @media screen and (min-width: 1280px) {
   .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-thanks {
-    bottom: 0;
+    bottom: -2px;
+  }
+  .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-thanks .field-item {
+    font-size: 32px;
+    line-height: 1;
   }
 }
 @media screen and (min-width: 768px) {
