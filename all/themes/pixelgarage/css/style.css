@@ -9133,17 +9133,44 @@ form#user-login {
 }
 .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name {
   position: absolute;
-  top: -22px;
-  padding: 0.2em 1em 0;
+  overflow: hidden;
+  bottom: -2px;
+  left: 0;
   width: 100%;
-  font-family: 'AkkuratProLight', sans-serif;
-  font-size: 16px;
-  font-style: italic;
+  height: auto;
   text-align: center;
-  letter-spacing: 1px;
-  line-height: 1.2em;
-  color: #ffffff;
-  background-color: #b69863;
+}
+.node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name .field-item {
+  font-family: 'UsherwoodStdBold', serif;
+  font-size: 6vw;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1;
+}
+@media screen and (min-width: 480px) {
+  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name {
+    bottom: -4px;
+  }
+  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name .field-item {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 768px) {
+  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name {
+    bottom: -3px;
+  }
+  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name .field-item {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name {
+    bottom: -1px;
+  }
+  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name .field-item {
+    font-size: 20px;
+  }
 }
 .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-image img {
   width: 100%;
@@ -9188,44 +9215,17 @@ form#user-login {
 }
 .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks {
   position: absolute;
-  overflow: hidden;
-  bottom: -2px;
-  left: 0;
+  top: -22px;
+  padding: 0.2em 1em 0;
   width: 100%;
-  height: auto;
+  font-family: 'AkkuratProLight', sans-serif;
+  font-size: 16px;
+  font-style: italic;
   text-align: center;
-}
-.node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks .field-item {
-  font-family: 'UsherwoodStdBold', serif;
-  font-size: 6vw;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  line-height: 1;
-}
-@media screen and (min-width: 480px) {
-  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks {
-    bottom: -4px;
-  }
-  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks .field-item {
-    font-size: 3.75vw;
-  }
-}
-@media screen and (min-width: 768px) {
-  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks {
-    bottom: -3px;
-  }
-  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks .field-item {
-    font-size: 18px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks {
-    bottom: -1px;
-  }
-  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks .field-item {
-    font-size: 20px;
-  }
+  letter-spacing: 1px;
+  line-height: 1.2em;
+  color: #ffffff;
+  background-color: #b69863;
 }
 .node-post.view-mode-back div.row {
   margin: 0;

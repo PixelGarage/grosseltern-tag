@@ -47,18 +47,40 @@
 
         .field-name-field-name {
           position: absolute;
-          top: -22px;
-          padding: 0.2em 1em 0;
+          overflow: hidden;
+          bottom: -2px;
+          left: 0;
           width: 100%;
-          font-family: @pxl-text-font-light;
-          font-size: 16px;
-          font-style: italic;
-          //text-transform: uppercase;
+          height: auto;
           text-align: center;
-          letter-spacing: 1px;
-          line-height: 1.2em;
-          color: @pxl-name-field-color;
-          background-color: @pxl-name-field-bg-color-left;
+
+          .field-item {
+            font-family: @pxl-title-font;
+            font-size: 6vw;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            line-height: 1;
+          }
+
+          @media @narrow {
+            bottom: -4px;
+            .field-item {
+              font-size: 3.75vw;
+            }
+          }
+          @media @tablet {
+            bottom: -3px;
+            .field-item {
+              font-size: 18px;
+            }
+          }
+          @media @wide {
+            bottom: -1px;
+            .field-item {
+              font-size: 20px;
+            }
+          }
         }
 
         .field-name-field-image {
@@ -98,40 +120,18 @@
 
         .field-name-field-thanks {
           position: absolute;
-          overflow: hidden;
-          bottom: -2px;
-          left: 0;
+          top: -22px;
+          padding: 0.2em 1em 0;
           width: 100%;
-          height: auto;
+          font-family: @pxl-text-font-light;
+          font-size: 16px;
+          font-style: italic;
+          //text-transform: uppercase;
           text-align: center;
-
-          .field-item {
-            font-family: @pxl-title-font;
-            font-size: 6vw;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            line-height: 1;
-          }
-
-          @media @narrow {
-            bottom: -4px;
-            .field-item {
-              font-size: 3.75vw;
-            }
-          }
-          @media @tablet {
-            bottom: -3px;
-            .field-item {
-              font-size: 18px;
-            }
-          }
-          @media @wide {
-            bottom: -1px;
-            .field-item {
-              font-size: 20px;
-            }
-          }
+          letter-spacing: 1px;
+          line-height: 1.2em;
+          color: @pxl-name-field-color;
+          background-color: @pxl-name-field-bg-color-left;
         }
 
       }
