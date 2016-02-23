@@ -9134,32 +9134,30 @@ form#user-login {
 .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name {
   position: absolute;
   overflow: hidden;
-  bottom: -2px;
+  bottom: -1px;
   left: 0;
   width: 100%;
   height: auto;
   text-align: center;
 }
 .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name .field-item {
-  font-family: 'UsherwoodStdBold', serif;
+  font-family: 'AkkuratProLight', sans-serif;
   font-size: 6vw;
   color: #fff;
+  font-style: italic;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   line-height: 1;
 }
 @media screen and (min-width: 480px) {
   .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name {
-    bottom: -4px;
+    bottom: -2px;
   }
   .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name .field-item {
     font-size: 3.75vw;
   }
 }
 @media screen and (min-width: 768px) {
-  .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name {
-    bottom: -3px;
-  }
   .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-name .field-item {
     font-size: 18px;
   }
@@ -9216,14 +9214,13 @@ form#user-login {
 .node-post.view-mode-front div.row div.col-sm-12 .field-name-field-thanks {
   position: absolute;
   top: -22px;
-  padding: 0.2em 1em 0;
+  padding: 4px 0 0;
   width: 100%;
-  font-family: 'AkkuratProLight', sans-serif;
-  font-size: 16px;
-  font-style: italic;
+  font-family: 'UsherwoodStdBold', serif;
+  font-size: 18px;
   text-align: center;
   letter-spacing: 1px;
-  line-height: 1.2em;
+  line-height: 1.1em;
   color: #ffffff;
   background-color: #b69863;
 }

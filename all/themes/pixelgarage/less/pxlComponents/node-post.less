@@ -48,29 +48,29 @@
         .field-name-field-name {
           position: absolute;
           overflow: hidden;
-          bottom: -2px;
+          bottom: -1px;
           left: 0;
           width: 100%;
           height: auto;
           text-align: center;
 
           .field-item {
-            font-family: @pxl-title-font;
+            font-family: @pxl-text-font-light;
             font-size: 6vw;
             color: #fff;
+            font-style: italic;
             text-transform: uppercase;
             letter-spacing: 0.8px;
             line-height: 1;
           }
 
           @media @narrow {
-            bottom: -4px;
+            bottom: -2px;
             .field-item {
               font-size: 3.75vw;
             }
           }
           @media @tablet {
-            bottom: -3px;
             .field-item {
               font-size: 18px;
             }
@@ -121,15 +121,14 @@
         .field-name-field-thanks {
           position: absolute;
           top: -22px;
-          padding: 0.2em 1em 0;
+          padding: 4px 0 0;
           width: 100%;
-          font-family: @pxl-text-font-light;
-          font-size: 16px;
-          font-style: italic;
+          font-family: @pxl-title-font;
+          font-size: 18px;
           //text-transform: uppercase;
           text-align: center;
           letter-spacing: 1px;
-          line-height: 1.2em;
+          line-height: 1.1em;
           color: @pxl-name-field-color;
           background-color: @pxl-name-field-bg-color-left;
         }
