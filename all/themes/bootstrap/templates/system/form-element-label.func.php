@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Stub file for bootstrap_form_element_label().
@@ -32,16 +33,20 @@
  *
  * @ingroup theme_functions
  */
-function bootstrap_form_element_label(&$variables) {
+function bootstrap_form_element_label(array &$variables) {
   $element = $variables['element'];
 
   // Extract variables.
   $output = '';
-  $title = isset($element['#title']) ? filter_xss_admin($element['#title']) . ' ' : '';
-  $required = !empty($element['#required']) ? theme('form_required_marker', array('element' => $element)) : '';
-  if ($required) {
-    $title .= $required;
+
+  $title = !empty($element['#title']) ? filter_xss_admin($element['#title']) : '';
+
+  // Only show the required marker if there is an actual title to display.
+  $marker = array('#theme' => 'form_required_marker', '#element' => $element);
+  if ($title && $required = !empty($element['#required']) ? drupal_render($marker) : '') {
+    $title .= ' ' . $required;
   }
+
   $display = isset($element['#title_display']) ? $element['#title_display'] : 'before';
   $type = !empty($element['#type']) ? $element['#type'] : FALSE;
   $checkbox = $type && $type === 'checkbox';
@@ -49,7 +54,7 @@ function bootstrap_form_element_label(&$variables) {
 
   // Immediately return if the element is not a checkbox or radio and there is
   // no label to be rendered.
-  if (!$checkbox && !$radio && ($display === 'none' || (!$title && !$required))) {
+  if (!$checkbox && !$radio && ($display === 'none' || !$title)) {
     return '';
   }
 

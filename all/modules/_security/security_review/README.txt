@@ -1,3 +1,4 @@
+
 -- ABOUT --
 
 Security Review automates checking many of the configuration errors that lead
@@ -93,6 +94,14 @@ locations, then:
     drush cc drush
     # Audit security.
     drush audit_security
+
+### Marking field content as known to be safe
+
+The "Dangerous tags in content" check may indicate problems with fields that
+you known are safe. You can create a list of field contents and entities
+that you want to be skipped in future runs by creating a SHA-256 hash of the
+entity_id, entity_type, and field contents. See security_review_check_field
+function in security_review.inc for details.
 
 -- SUPPORT --
 

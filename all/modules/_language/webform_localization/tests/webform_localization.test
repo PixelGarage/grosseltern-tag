@@ -19,45 +19,8 @@ class WebformLocalizationWebTestCase extends DrupalWebTestCase {
    * Implements setUp().
    */
   function setUp($added_modules = array()) {
-    // Set the following variable to FALSE if you're testing locally.
-    $drupalorg = TRUE;
-    
-    if (module_exists('webform_localization') || $drupalorg) {
-      $added_modules = array_merge(array('webform_localization'), $added_modules);
-    }
-    if (module_exists('webform') || $drupalorg ) {
-      $added_modules = array_merge(array('webform'), $added_modules);
-    }
-    if (module_exists('token') || $drupalorg ) {
-      $added_modules = array_merge(array('token'), $added_modules);
-    }
-    if (module_exists('views') || $drupalorg ) {
-      $added_modules = array_merge(array('views'), $added_modules);
-    }
-    if (module_exists('ctools') || $drupalorg ) {
-      $added_modules = array_merge(array('ctools'), $added_modules);
-    }
-    if (module_exists('i18n_translation') || $drupalorg ) {
-      $added_modules = array_merge(array('i18n_translation'), $added_modules);
-    }
-    if (module_exists('i18n_string') || $drupalorg ) {
-      $added_modules = array_merge(array('i18n_string'), $added_modules);
-    }
-    if (module_exists('i18n') || $drupalorg ) {
-      $added_modules = array_merge(array('i18n'), $added_modules);
-    }
-    if (module_exists('variable') || $drupalorg ) {
-      $added_modules = array_merge(array('variable'), $added_modules);
-    }
-    if (module_exists('translation') || $drupalorg ) {
-      $added_modules = array_merge(array('translation'), $added_modules);
-    }
-    if (module_exists('locale') || $drupalorg ) {
-      $added_modules = array_merge(array('locale'), $added_modules);
-    }
-    if (module_exists('block') || $drupalorg ) {
-      $added_modules = array_merge(array('block'), $added_modules);
-    }
+    $modules = array('webform_localization', 'webform', 'views', 'ctools', 'i18n_translation', 'i18n_string', 'i18n', 'variable', 'translation', 'locale', 'block');
+    $added_modules = array_merge($modules, $added_modules);
     parent::setUp($added_modules);
 
     // We load webform test class to reuse webform and components creation functions.
@@ -341,6 +304,7 @@ class WebformLocalizationStringTranslationTestCase extends WebformLocalizationWe
       'name' => 'Webform Localization',
       'description' => 'Webform localization String Translations Tests.',
       'group' => 'Webform Localization',
+      'dependencies' => array('webform_localization', 'webform', 'views', 'ctools', 'i18n_translation', 'i18n_string', 'i18n', 'variable'),
     );
   }
 
@@ -483,6 +447,33 @@ class WebformLocalizationStringTranslationTestCase extends WebformLocalizationWe
 
 }
 
+/**
+ * The same test as WebformLocalizationStringTranslationTestCase, but with the
+ * Token module enabled.
+ */
+class WebformLocalizationStringTranslationTokenTestCase extends WebformLocalizationStringTranslationTestCase {
+  /**
+   * Test info.
+   */
+  public static function getInfo() {
+    $info = parent::getInfo();
+    $info = array_merge($info, array(
+      'name' => 'Webform Localization Token',
+      'description' => 'Webform localization String Translations with Token Tests.',
+    ));
+    $info['dependencies'][] = 'token';
+    return $info;
+  }
+
+  /**
+   * Set up test.
+   */
+  function setUp($added_modules = array()) {
+    $added_modules = array_merge(array('token'), $added_modules);
+    parent::setUp($added_modules);
+  }
+}
+
 class WebformLocalizationApiTestCase extends WebformLocalizationWebTestCase {
 
   /**
@@ -493,6 +484,7 @@ class WebformLocalizationApiTestCase extends WebformLocalizationWebTestCase {
       'name' => 'Test Webform Localization API.',
       'description' => 'Test webform and webform localization interaction at API level.',
       'group' => 'Webform Localization',
+      'dependencies' => array('webform_localization', 'webform', 'views', 'ctools', 'i18n_translation', 'i18n_string', 'i18n', 'variable'),
     );
   }
 

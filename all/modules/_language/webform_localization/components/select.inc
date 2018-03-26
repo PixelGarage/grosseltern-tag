@@ -6,22 +6,22 @@
  */
 
 /**
- * Translate a single option from component
+ * Translate a single option from component.
  *
- * @param $component
+ * @param array $component
  *   The select component
- * @param $option
- *   Untranslated option string
+ * @param string $option
+ *   Untranslated option string.
  *
- * @return
- *   The translated option string, if found
+ * @return string
+ *   The translated option string, if found.
  */
 function webform_localization_translate_select_option($component, $option) {
   // Find the source for data value and translate it.
   $item_key_lookup = _webform_localization_string_to_key($component['extra']['items']);
   foreach ($component['extra']['translated_strings'] as $name) {
     $name_list = explode(':', $name);
-    // Translate options
+    // Translate options.
     if (strpos($name_list[3], '-') !== FALSE) {
       list (, $key) = explode('-', $name_list[3]);
       if (isset($item_key_lookup[$key]) && $option == $item_key_lookup[$key]) {
@@ -86,7 +86,7 @@ function _webform_localization_analysis_data_select($data, $node, $component) {
   $item_key_lookup = _webform_localization_string_to_key($component['extra']['items']);
   foreach ($component['extra']['translated_strings'] as $name) {
     $name_list = explode(':', $name);
-    // Translate options
+    // Translate options.
     if (strpos($name_list[3], '-') !== FALSE) {
       list (, $key) = explode('-', $name_list[3]);
       if (isset($item_key_lookup[$key])) {

@@ -14,12 +14,12 @@
  * when all webform strings are updated from
  * admin/config/regional/translate/i18n_string.
  *
- * @param $header
- *   The untranslated CSV header to be altered
- * @param $component
- *   The webform component
+ * @param array $header
+ *   The untranslated CSV header to be altered.
+ * @param array $component
+ *   The webform component.
  *
- * @return
+ * @return array
  *   The translated header array.
  */
 function _webform_localization_csv_header_component($header, $component) {
@@ -32,14 +32,14 @@ function _webform_localization_csv_header_component($header, $component) {
  *
  * This allows each component to translate the analysis report CSV data.
  *
- * @param $data
- *   The untranslated CSV data to be altered
- * @param $component
- *   The webform component
- * @param $submission
- *   The webform submission
+ * @param array $data
+ *   The untranslated CSV data to be altered.
+ * @param array $component
+ *   The webform component.
+ * @param array $submission
+ *   The webform submission.
  *
- * @return
+ * @return array
  *   The translated data array.
  */
 function _webform_localization_csv_data_component($data, $component, $submission) {
@@ -56,14 +56,14 @@ function _webform_localization_csv_data_component($data, $component, $submission
  * when all webform strings are updated from
  * admin/config/regional/translate/i18n_string.
  *
- * @param $data
+ * @param array $data
  *   The untranslated data to be altered
- * @param $node
- *   The webform node
- * @param $component
- *   The webform component
+ * @param object $node
+ *   The webform node.
+ * @param array $component
+ *   The webform component.
  *
- * @return
+ * @return array
  *   The translated data array.
  */
 function _webform_localization_analysis_data_component($data, $node, $component) {

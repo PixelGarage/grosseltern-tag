@@ -9,6 +9,10 @@
  * component, which is build when the component is inserted / updated, or
  * when all webform strings are updated from
  * admin/config/regional/translate/i18n_string.
+ */
+
+/**
+ * Implements _webform_localization_analysis_data_component().
  *
  * @param array $data
  *   The data array of component results.
@@ -16,8 +20,9 @@
  *   The node
  * @param array $component
  *   The component.
- * Implements _webform_localization_analysis_data_component().
-
+ *
+ * @return array
+ *   Translated data array of component results.
  */
 function _webform_localization_analysis_data_grid($data, $node, $component) {
   if (!isset($component['extra']['translated_strings']) || !is_array($component['extra']['translated_strings'])) {
@@ -28,7 +33,7 @@ function _webform_localization_analysis_data_grid($data, $node, $component) {
 
   foreach ($component['extra']['translated_strings'] as $name) {
     $name_list = explode(':', $name);
-    // Translate options / questions
+    // Translate options / questions.
     list (, $key) = explode('-', $name_list[3]);
 
     if (strpos($name_list[3], 'grid_options') && $name_list[3] !== '#title') {
